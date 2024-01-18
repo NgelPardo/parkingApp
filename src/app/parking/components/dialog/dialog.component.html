@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>{{ data.placa }}</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <h2><b>Hora entrada:</b>
+    {{ data.fec_ing | date: 'medium' }}</h2>
+  <h2><b>Hora salida:</b>
+    {{ data.fec_sal | date: 'medium' }}</h2>
+  <h2><b>Tiempo total:</b>
+  {{ data.tie_tot }} mins</h2>
+  <h2><b>Total a pagar: </b>
+    <span style="color: brown;">{{ data.val_pag | currency }}</span></h2>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions style="padding: 20px;">
+  <button mat-button mat-dialog-close color="warn">Aceptar</button>
+</div>

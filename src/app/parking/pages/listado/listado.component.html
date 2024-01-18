@@ -1,0 +1,81 @@
+
+<div class="container-input">
+  <div class="item-input">
+    <div class="">
+      <div style="padding-left: 10px;">
+        <h2 style="font-weight: 600;">Vehiculos</h2>
+      </div>
+      <div class="container-input-range">
+        <div class="item-button">
+          <button mat-raised-button color="primary" (click)="applyFilter()">Filtrar por rango de tiempo</button>
+        </div>
+        <mat-form-field>
+          <input matInput [ngxMatDatetimePicker]="picker_ing" placeholder="Choose a time"
+            [min]="" [max]="" [disabled]="">
+          <ngx-mat-datepicker-toggle matSuffix [for]="picker_ing"></ngx-mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #picker_ing [showSpinners]="true" [showSeconds]="false"
+            [stepHour]="1" [stepMinute]="1" [stepSecond]="1" [touchUi]="false"
+            [color]="'warn'" [enableMeridian]="true" [disableMinute]="false" [hideTime]="false"
+            style="background-color: white;">
+          </ngx-mat-datetime-picker>
+        </mat-form-field>
+        <span style="margin-top: 10px;">_</span>
+        <mat-form-field>
+          <input matInput [ngxMatDatetimePicker]="picker_sal" placeholder="Choose a time"
+            [min]="" [max]="" [disabled]="">
+          <ngx-mat-datepicker-toggle matSuffix [for]="picker_sal"></ngx-mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #picker_sal [showSpinners]="true" [showSeconds]="false"
+            [stepHour]="1" [stepMinute]="1" [stepSecond]="1" [touchUi]="false"
+            [color]="'warn'" [enableMeridian]="true" [disableMinute]="false" [hideTime]="false"
+            style="background-color: white;">
+          </ngx-mat-datetime-picker>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-input">
+  <div class="item-table">
+    <table mat-table [dataSource]="vehiculos" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="placa">
+        <th mat-header-cell *matHeaderCellDef> Placa </th>
+        <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fec_ing">
+        <th mat-header-cell *matHeaderCellDef> Fec. Ingreso </th>
+        <td mat-cell *matCellDef="let element"> {{element.fec_ing | date:'medium' }} </td>
+      </ng-container>
+      <ng-container matColumnDef="fec_sal">
+        <th mat-header-cell *matHeaderCellDef> Fec. Salida </th>
+        <td mat-cell *matCellDef="let element"> {{element.fec_sal | date:'medium' }} </td>
+      </ng-container>
+      <ng-container matColumnDef="tiempo">
+        <th mat-header-cell *matHeaderCellDef> Tiempo Total </th>
+        <td mat-cell *matCellDef="let element"> {{ element.tie_tot | number: '1.0-1' }} </td>
+      </ng-container>
+      <ng-container matColumnDef="val_pag">
+        <th mat-header-cell *matHeaderCellDef> Valor pagado </th>
+        <td mat-cell *matCellDef="let element"> {{element.val_pag | currency }} </td>
+      </ng-container>
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element"><span class="span-salida">{{element.estado }}</span></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+      </tr>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,38 @@
+.container-input-range{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.container-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-input{
+  width: 60%;
+  margin-top: 30px;
+  background-color: rgb(235, 235, 235);
+  padding: 15px 10px 0 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.title-filter{
+  padding: 30px 10px 0 10px;
+}
+
+.item-table{
+  width: 61%;
+}
+
+.item-button{
+  padding-top: 10px;
+}
+
+.span-salida{
+  color: rgb(230, 40, 40);
+  padding: 5px;
+  border: 1px solid rgb(230, 40, 40);
+  border-radius: 10px;
+}
